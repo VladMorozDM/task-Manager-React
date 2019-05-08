@@ -14,6 +14,10 @@
   border-bottom: 1px solid lavender;
   background-color: rgba(50,205,50, 0.7);
 }
+.task small{
+  width: 50px;
+  padding-left: 10px;
+}
 .task form{
   width:  100%;
   padding: 0 30px;

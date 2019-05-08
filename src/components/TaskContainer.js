@@ -15,9 +15,10 @@ class TaskContainer extends Component{
         const tasks = filteredTasks.map( task => ( <Task
                 description={task.description}
                 done={task.done} id={task.id}
+                date={task.date}
                 key={task.id}
                 onChange={this.props.onFinishing}
-                onDelete={this.props.onDelete} /> )
+                onDelete={this.props.onDelete}/> )
             );
 
         return (
@@ -38,9 +39,5 @@ function sortByAlphabet(a, b) {
     if (a.description.toLowerCase() > b.description.toLowerCase())  return 1;
     return 0;
 }
-function filter( textSample ){
-
-}
-
 
 export default TaskContainer

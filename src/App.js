@@ -21,9 +21,9 @@ class App extends Component{
   componentDidMount(){
       // API Call
       const TASKS = [
-          { description: "some task", id: 1, done: false },
-          { description: "my task", id: 2, done: false },
-          { description: "not boring task", id: 3, done: true },
+          { description: "some task", id: 1, done: false, date: new Date() },
+          { description: "my task", id: 2, done: false, date: new Date() },
+          { description: "not boring task", id: 3, done: true, date: new Date() },
       ];
       this.setState( prevState => ({ ...prevState, tasks: TASKS }) )
   };
@@ -55,6 +55,7 @@ class App extends Component{
     }
 
   render() {
+        console.log(this.state.tasks);
       const lastId = this.state.tasks.length ? this.state.tasks[this.state.tasks.length-1].id : 0;
     return (
         <div className="App">

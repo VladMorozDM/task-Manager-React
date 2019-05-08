@@ -18,7 +18,8 @@ class TaskForm extends Component{
         const newTask = {
             id: this.props.lastId,
             description: this.state.descriptionValue,
-            done: false
+            done: false,
+            date: new Date()
         };
         this.props.onAdding( newTask );
     }

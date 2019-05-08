@@ -15,6 +15,7 @@ class SortTasks extends Component{
         render(){
         return (
             <div>
+                Sotr by:
                 <select value={this.props.sortType} name="sort" id="sorting" onChange={this.handleChange}>
                     <option value="byAlphabet">by Alphabet</option>
                     <option value="byNewest">by Newest</option>
