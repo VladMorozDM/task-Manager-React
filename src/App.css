@@ -1,0 +1,30 @@
+.App{
+  width: 35vw;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+}
+.task{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 1px solid lavender;
+  background-color: rgba(50,205,50, 0.7);
+}
+.task form{
+  width:  100%;
+  padding: 0 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.task-form{
+  display: flex;
+}
+.in-progress{
+  background-color: rgba(127,255,0, 0.5);
+}
