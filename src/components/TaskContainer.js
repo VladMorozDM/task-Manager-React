@@ -7,9 +7,12 @@ import Task from "./Task";
 class TaskContainer extends Component{
 
     render(){
-        console.log(this.props.filtertext);
+
         const sortedTasks = this.props.sortType === "byAlphabet" ? [...this.props.tasks].sort(sortByAlphabet) : this.props.tasks;
-        const tasks = sortedTasks.map( task => ( <Task
+        const filteredTasks = this.props.filterText
+                                ? sortedTasks.filter( task => task.description.toLowerCase().includes(this.props.filterText.toLowerCase() ))
+                                : sortedTasks;
+        const tasks = filteredTasks.map( task => ( <Task
                 description={task.description}
                 done={task.done} id={task.id}
                 key={task.id}

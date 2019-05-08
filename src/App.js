@@ -67,7 +67,7 @@ class App extends Component{
                 onFinishing={this.handleFinishing}
                 onDelete={this.handleDelete}
                 sortType={this.state.sort}
-                filtertext={this.state.filterText}
+                filterText={this.state.filterText}
             />
             <TaskForm onAdding={this.handleAdd} lastId = { lastId + 1 } />
         </div>
