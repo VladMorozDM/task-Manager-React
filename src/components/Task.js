@@ -21,7 +21,7 @@ class Task extends Component{
         return (<div className={ this.props.done ? "task done" : "task in-progress" }>
             <form >
                 <input type="checkBox" checked={this.props.done} onChange={this.handleChange}/>
-                <p>{this.props.description || "Description"}</p>
+                <p className="description">{this.props.description || "Description"}</p>
                 <input type="button" value="delete" onClick={this.handleClick}/>
             </form>
         </div>)

@@ -5,20 +5,39 @@ import React,{Component} from 'react';
 import Task from "./Task";
 
 class TaskContainer extends Component{
+
     render(){
-        const tasks = this.props.tasks.map( task => ( <Task
-            description={task.description}
-            done={task.done} id={task.id}
-            key={task.id}
-            onChange={this.props.onFinishing}
-            onDelete={this.props.onDelete} /> )
-        );
+        console.log(this.props.filtertext);
+        const sortedTasks = this.props.sortType === "byAlphabet" ? [...this.props.tasks].sort(sortByAlphabet) : this.props.tasks;
+        const tasks = sortedTasks.map( task => ( <Task
+                description={task.description}
+                done={task.done} id={task.id}
+                key={task.id}
+                onChange={this.props.onFinishing}
+                onDelete={this.props.onDelete} /> )
+            );
+
         return (
-            <div>
-                {tasks}
+            <div className="task-container">
+                { tasks }
             </div>
         )
     }
 }
+
+function sortByTime(a, b) {
+    const c = new Date(a.date);
+    const d = new Date(b.date);
+    return c - d;
+}
+function sortByAlphabet(a, b) {
+    if (a.description.toLowerCase() < b.description.toLowerCase())  return -1;
+    if (a.description.toLowerCase() > b.description.toLowerCase())  return 1;
+    return 0;
+}
+function filter( textSample ){
+
+}
+
 
 export default TaskContainer

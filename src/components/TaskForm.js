@@ -25,7 +25,7 @@ class TaskForm extends Component{
     render() {
         return (
             <div className="task-form">
-                <input type="text" name="descriptionValue" placeholder="Describe your task" onChange={this.handleChange}/>
+                <textarea name="descriptionValue" placeholder="Describe your task" onChange={this.handleChange}/>
                 <input type="button" value="Add new Task" onClick={this.handleClick}/>
             </div>)
     }

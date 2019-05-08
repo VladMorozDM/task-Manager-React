@@ -4,19 +4,24 @@
 import React,{Component} from 'react';
 
 class SortTasks extends Component{
-    handleChange(){
-
+    constructor(props){
+        super(props);
+        this.handleChange = this.handleChange.bind(this);
     }
-    render(){
+    handleChange( event ){
+        this.props.onChangeSorting( event.target.name, event.target.value )
+    }
+
+        render(){
         return (
             <div>
-                <select value="byDefault" name="sorting" id="sorting" onChange={this.handleChange}>
+                <select value={this.props.sortType} name="sort" id="sorting" onChange={this.handleChange}>
                     <option value="byAlphabet">by Alphabet</option>
                     <option value="byNewest">by Newest</option>
                     <option value="byDefault">Default</option>
                 </select>
                 <form action="#">
-                    <input type="text" name="filterText" placeholder="Filter results..."/>
+                    <input type="text" name="filterText" placeholder="Filter results..." onChange={this.handleChange}/>
                 </form>
             </div>
         )

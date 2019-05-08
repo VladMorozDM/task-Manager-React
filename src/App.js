@@ -9,13 +9,13 @@ class App extends Component{
     super(props);
     this.state = {
         tasks: [],
-        sort: "none",
+        sort: "byDefault",
+        filterText: ""
     };
     this.handleDelete = this.handleDelete.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
     this.handleFinishing = this.handleFinishing.bind(this);
     this.handleChangeSorting = this.handleChangeSorting.bind(this);
-    this.handleFiltering = this.handleFiltering.bind(this);
 
   }
   componentDidMount(){
@@ -50,25 +50,24 @@ class App extends Component{
             }
         });
     }
-    handleChangeSorting( typeOfSorting ){
-        this.setState( prevState => ({ sort: typeOfSorting }) )
+    handleChangeSorting( name, value ){
+        this.setState( prevState => ({ [name]: value }) )
     }
-    handleFiltering(){
 
-    }
   render() {
       const lastId = this.state.tasks.length ? this.state.tasks[this.state.tasks.length-1].id : 0;
     return (
         <div className="App">
             <SortTasks
+                sortType={this.state.sort}
                 onChangeSorting={this.handleChangeSorting}
-                onFiltering={this.handleFiltering}
             />
             <TaskContainer
                 tasks={this.state.tasks}
                 onFinishing={this.handleFinishing}
                 onDelete={this.handleDelete}
-                sortType ={this.state.sort}
+                sortType={this.state.sort}
+                filtertext={this.state.filterText}
             />
             <TaskForm onAdding={this.handleAdd} lastId = { lastId + 1 } />
         </div>
