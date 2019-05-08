@@ -9,7 +9,7 @@ class Task extends Component{
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        // console.log(this.props);
+
     }
     handleClick(){
         this.props.onDelete( this.props.id )

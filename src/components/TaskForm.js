@@ -11,12 +11,10 @@ class TaskForm extends Component{
     }
 
     handleChange(event){
-        console.log("changing desc", this.state);
         const { name, value } = event.target;
         this.setState( prevState => ({ [name]: value }))
     }
     handleClick(event){
-        console.log("adding", this.state);
         const newTask = {
             id: this.props.lastId,
             description: this.state.descriptionValue,

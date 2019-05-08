@@ -10,9 +10,10 @@ class SortTasks extends Component{
     render(){
         return (
             <div>
-                <select value="byAlphabet" name="sorting" id="sorting" onChange={this.handleChange}>
+                <select value="byDefault" name="sorting" id="sorting" onChange={this.handleChange}>
                     <option value="byAlphabet">by Alphabet</option>
                     <option value="byNewest">by Newest</option>
+                    <option value="byDefault">Default</option>
                 </select>
                 <form action="#">
                     <input type="text" name="filterText" placeholder="Filter results..."/>
