@@ -21,8 +21,6 @@ class Task extends Component{
         this.props.onChange(this.props.id);
     }
     render(){
-
-        console.log(this.props);
         return (<div className={ this.props.done ? "task done" : "task in-progress" }>
             <small>
                 {monthNames[this.props.date.getMonth()] + " " + this.props.date.getDate()}

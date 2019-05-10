@@ -21,9 +21,9 @@ class App extends Component{
   componentDidMount(){
       // API Call
       const TASKS = [
-          { description: "some task", id: 1, done: false, date: new Date() },
-          { description: "my task", id: 2, done: false, date: new Date() },
-          { description: "not boring task", id: 3, done: true, date: new Date() },
+          { description: "some task", id: 1, done: false, date: new Date('February 17, 2019') },
+          { description: "my task", id: 2, done: false, date: new Date('January1, 2019') },
+          { description: "not boring task", id: 3, done: true, date: new Date('May 1, 2019') },
       ];
       this.setState( prevState => ({ ...prevState, tasks: TASKS }) )
   };
@@ -35,9 +35,7 @@ class App extends Component{
     }
     handleFinishing(taskId ){
         this.setState( prevState => {
-            const newTasks = prevState.tasks.map( task => {
-                return task.id === taskId ? {...task, done: !task.done } : task
-            });
+            const newTasks = prevState.tasks.map( task => task.id === taskId ? {...task, done: !task.done } : task );
             return ({ ...prevState, tasks: newTasks })
         });
     }
@@ -55,7 +53,6 @@ class App extends Component{
     }
 
   render() {
-        console.log(this.state.tasks);
       const lastId = this.state.tasks.length ? this.state.tasks[this.state.tasks.length-1].id : 0;
     return (
         <div className="App">

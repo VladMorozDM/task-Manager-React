@@ -11,7 +11,6 @@ class SortTasks extends Component{
     handleChange( event ){
         this.props.onChangeSorting( event.target.name, event.target.value )
     }
-
         render(){
         return (
             <div>
