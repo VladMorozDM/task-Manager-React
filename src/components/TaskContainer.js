@@ -34,10 +34,10 @@ class TaskContainer extends Component{
 }
 
 function sortByTime(a, b) {
-    console.log(a.date.toLocaleDateString(), b.date.toLocaleDateString());
-    console.log(a.date.toLocaleDateString() < b.date.toLocaleDateString(), "less");
-    if( a.date < b.date ) return 1;
-    if( a.date > b.date ) return -1;
+    const firstDate = new Date(a.date);
+    const secondDate = new Date(b.date);
+    if( firstDate < secondDate ) return 1;
+    if( firstDate > secondDate ) return -1;
     return 0;
 }
 function sortByAlphabet(a, b) {

@@ -13,7 +13,7 @@ class SortTasks extends Component{
     }
         render(){
         return (
-            <div>
+            <div className="task-sort">
                 Sotr by:
                 <select value={this.props.sortType} name="sort" id="sorting" onChange={this.handleChange}>
                     <option value="byAlphabet">by Alphabet</option>

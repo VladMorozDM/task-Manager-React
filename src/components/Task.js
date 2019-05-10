@@ -21,9 +21,10 @@ class Task extends Component{
         this.props.onChange(this.props.id);
     }
     render(){
+        const date = new Date(this.props.date);
         return (<div className={ this.props.done ? "task done" : "task in-progress" }>
             <small>
-                {monthNames[this.props.date.getMonth()] + " " + this.props.date.getDate()}
+                {monthNames[date.getMonth()] + " " + date.getDate()}
             </small>
             <form >
                 <input type="checkBox" checked={this.props.done} onChange={this.handleChange}/>

@@ -28,10 +28,20 @@
 }
 .task-form{
   width: 100%;
+  margin: 30px 0;
   display: flex;
 }
 .task-form textarea{
   width: 100%;
+}
+.task-container{
+  margin: 30px 0;
+}
+.task-sort{
+  margin: 30px 0;
+}
+.task-sort form{
+  padding-top: 10px;
 }
 .in-progress{
   color: black;

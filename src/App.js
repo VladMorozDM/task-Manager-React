@@ -20,16 +20,21 @@ class App extends Component{
   }
   componentDidMount(){
       // API Call
-      const TASKS = [
-          { description: "some task", id: 1, done: false, date: new Date('February 17, 2019') },
-          { description: "my task", id: 2, done: false, date: new Date('January1, 2019') },
-          { description: "not boring task", id: 3, done: true, date: new Date('May 1, 2019') },
-      ];
+      const tasksFromStorage = JSON.parse(localStorage.getItem("tasks"));
+      console.log(tasksFromStorage)  ;
+      const TASKS = tasksFromStorage
+          ? tasksFromStorage
+          : [
+                { description: "some task", id: 1, done: false, date: new Date('February 17, 2019') },
+                { description: "my task", id: 2, done: false, date: new Date('January1, 2019') },
+                { description: "not boring task", id: 3, done: true, date: new Date('May 1, 2019') },
+            ];
       this.setState( prevState => ({ ...prevState, tasks: TASKS }) )
   };
     handleDelete( taskId ){
         this.setState( prevState => {
             const newTasks = prevState.tasks.filter( task => task.id !== taskId );
+            localStorage.setItem("tasks", JSON.stringify(newTasks));
             return ({ ...prevState, tasks: newTasks })
         });
     }
@@ -43,10 +48,12 @@ class App extends Component{
         this.setState( prevState => {
             prevState.tasks.push(newTask);
             const newTasks = prevState.tasks;
+            localStorage.setItem("tasks", JSON.stringify(newTasks));
             return {
                 tasks: newTasks
             }
         });
+
     }
     handleChangeSorting( name, value ){
         this.setState( prevState => ({ [name]: value }) )
